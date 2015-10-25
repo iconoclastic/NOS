@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Names on Stuff</title>
+    <meta name="description" content="">
+    <base href="/"></base>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="namesonstuffApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div ng-controller="IndexCtrl">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div><!-- Navbar Header -->    
+          <div class="collapse navbar-collapse" id="main-navigation">
+            <ul class="nav navbar-nav clearfix">
+              <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+              <li><a href="about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="contact">Contact</a></li>
+              <li><a href="faq">FAQs</a></li>
+            </ul>        
+          </div><!-- Navbar Collapse -->
+        </div><!-- Container Fluid -->
+      </nav><!-- Navigation -->
+      <header class="clearfix m-b-20">
+        <div class="col-xs-4 text-left the-back">
+          
+        </div><!-- column -->
+        <div id="logo" class="col-xs-4 text-center white-bg">
+          <a href="#"><img src="images/logo.png" alt="Logo"></a>
+        </div><!-- Column -->
+        <div class="col-xs-4 text-right">
+          <ul class="list-unstyled social-media">
+            <li><a href="#" class="light-blue f-25"><i class="fa fa-linkedin-square"></i></a></li>
+            <li><a href="#" class="light-blue f-25"><i class="fa fa-google-plus-square"></i></a></li>                    
+            <li class="mb-clear"><a href="#" class="light-blue f-25"><i class="fa fa-twitter-square"></i></a></li>          
+            <li><a href="#" class="light-blue f-25"><i class="fa fa-facebook-square"></i></a></li>                   
+          </ul>
+        </div><!-- Column -->        
+      </header><!-- Header -->
+      <div id="header-divider" class="divider blue-bg clearfix text-center">      
+      </div><!-- Header Divider -->
+
+      <div ng-view></div>
+
+      <div id="footer-divider-2" class="orange-bg clearfix">
+        <div class="col-sm-6 white text-right mb-text-center" ng-hide="pageController('/')">
+          <span class="flag-icon flag-icon-gb v-middle f-33"></span> <i class="f-30 v-middle">Gordon</i> <b class="f-30 v-middle">McLean</b>
+        </div>
+        <div class="col-sm-6 black text-left mb-text-center" ng-hide="pageController('/')">
+          <span class="flag-icon flag-icon-gb v-middle f-33"></span> <i class="f-30 v-middle">Gordon</i> <b class="f-30 v-middle">McLean</b>        
+        </div>
+      </div> <!-- Footer Divider 2 -->
+      <footer id="footer" class="clearfix" ng-show="pageController('/step2')">
+        <form action="#" name="footer-form">
+          <div class="col-sm-12 form-inline text-center mb-text-center">
+              <span class="flag-icon flag-icon-gb f-33"></span>
+              <label class="sr-only" for="first-name">First Name</label>
+              <input type="text" class="form-control v-middle lighter-blue-bg blue no-border" id="first-name" placeholder="First Name">
+              <label class="sr-only" for="first-name">Last Name</label>
+              <input type="text" class="form-control v-middle lighter-blue-bg blue no-border" id="last-name" placeholder="Last Name">            
+          </div>
+        </form><!-- Footer Form -->
+      </footer><!-- Footer -->
+      <div id="footer-divider" class="divider velvet-bg clearfix text-center">
+        <span class="white f-16 footer-container">
+          <span ng-class="{'active' : pageController('/')}">
+            <i class="counter velvet-light-bg velvet-light img-circle">1</i>
+            <span>Select a product to visualise your name on</span>
+          </span>
+          <span ng-class="{'active' : pageController('/step2')}">
+            <i class="counter velvet-light-bg velvet-light img-circle">2</i>
+            <span>Select your Flag and Enter Your name</span>            
+          </span>
+          <span ng-class="{'active' : pageController('/step3')}">
+            <i class="counter velvet-light-bg velvet-light img-circle">3</i>
+            <span>Select a plan</span>            
+          </span>
+          <span ng-class="{'active' : pageController('/step4')}">
+            <i class="counter velvet-light-bg velvet-light img-circle">4</i> 
+            <span>Confirm and Order... Postage is included!</span> 
+          </span> 
+          <span ng-class="{'active' : pageController('/step5')}">
+            <i class="counter velvet-light-bg velvet-light img-circle">5</i> 
+            <span>Checkout</span> 
+          </span>
+          <span ng-class="{'active' : pageController('/step6')}">
+            <i class="counter velvet-light-bg velvet-light img-circle">6</i> 
+            <span>Thanks for your purchase!</span>
+          </span> 
+        </span>
+        <a ng-href="{{PrevPageCalculator()}}" ng-class="{'hide': PrevWatcher}" class="back"><span class="glyphicon glyphicon-menu-left blue" aria-hidden="true"></span>BACK</a>
+        <a ng-href="{{NextPageCalculator()}}" ng-class="{'hide': NextWatcher}" class="next">NEXT <span class="glyphicon glyphicon-menu-right blue" aria-hidden="true"></span></a>
+      </div><!-- Footer Divider -->     
+    </div><!-- Main Container -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/step2.js"></script>
+        <script src="scripts/controllers/step3.js"></script>
+        <script src="scripts/controllers/step4.js"></script>
+        <script src="scripts/controllers/step5.js"></script>
+        <script src="scripts/controllers/step6.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
